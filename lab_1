@@ -1,0 +1,373 @@
+Das 1.
+
+xndir 1.
+statik zngvaci chapy nermucel gtnem maxi  u mini mijiny:
+Գրեք ծրագիր, որը օգտվողին թույլ կտա մուտքագրել ամբողջ թվային զանգվածի էլեմենտների արժեքները, և տպել դրանցից առավելագույնի արժեքը:
+
+#include <iostream>
+
+double mij(int*, int);
+
+int main(){
+    
+    int size;
+    int arr[20];
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    for(int i = 0; i < size; ++i){
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+    std::cout << "Mijin: " << mij(arr, size) << std::endl;
+    return 0;
+}
+
+
+double mij(int* arr, int size){
+    int MAX = arr[0];
+    int MIN = arr[0];
+    for(int i = 1; i < size; ++i){
+        if (MAX < arr[i]){
+            MAX = arr[i];
+        } else if (MIN > arr[i]){
+            MIN = arr[i];
+        }
+    }
+    return (double)(MAX + MIN) / 2;
+
+}
+
+Գրեք ծրագիր, որը օգտվողին թույլ կտա մուտքագրել ամբողջ թվային զանգվածի էլեմենտների արժեքները և տպում է առավելագույն արժեքով էլեմենտի ինդեքսը։
+
+#include <iostream>
+
+int mij(int*, int);
+void print(int*, int);
+
+int main(){
+    
+    int size;
+    int arr[20];
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    for(int i = 0; i < size; ++i){
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+    print(arr, size);
+    std::cout << "Index: " << mij(arr, size) << std::endl;
+    return 0;
+}
+int mij(int* arr, int size){
+    int MAX = arr[0];
+    int k = 0;
+    for(int i = 1; i < size; ++i){
+        if (MAX < arr[i]){
+            MAX = arr[i];
+            k = i;
+        }
+    }
+    return k;
+}
+
+void print(int* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+xndir 2.
+tary bajanel sizin
+ծրագիր, որը թույլ կտա մուտքագրել ամբողջ թվային զանգված։ Զանգվածի բոլոր էլեմենտները փոխարինել այդ էլեմենտի արժեքը բաժանած զանգվածում էլեմենտների քանակի վրա։
+
+#include <iostream>
+
+void div(double*, int);
+void print(double*, int);
+
+int main(){
+    
+    int size;
+    double arr[20];
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    for(int i = 0; i < size; ++i){
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+    print(arr, size);
+    div(arr, size);
+    print(arr, size);
+    return 0;
+}
+
+
+void div(double* arr, int size){
+    for(int i = 1; i < size; ++i){
+        arr[i] /= size;
+    }
+}
+
+
+void print(double* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+xndir 3.
+Գրեք ծրագիր,  որը օգտվողին թույլ կտա մուտքագրել նույն չափսի, երկու ամբողջ թվային զանգվածների էլեմենտների արժեքները և 
+տպում է՝ համապատասխանող ինդեքսեներով էլեմնետների արտադրյալը էկրանին:
+2 hat zngvac bazmapatkel arajin znag araji tary 2 zangvaci verjin tarin
+
+
+#include <iostream>
+
+
+void div(double*,double*, int);
+void print(double*, int);
+void scan(double*, int);
+
+int main(){
+    
+    int size;
+    double arr1[20];
+    double arr2[20];
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    std::cout << " Enter first array elements!" << std::endl;
+    scan(arr1, size);
+    std::cout << " Enter secnd array elements!" << std::endl;
+    scan(arr2, size);
+    print(arr1, size);
+    print(arr2, size);
+    div(arr1, arr2, size);
+   
+    return 0;
+}
+
+void scan(double* arr, int size){
+      for(int i = 0; i < size; ++i){
+         std::cout << "Enter element: ";
+         std::cin >> arr[i];
+      }
+}
+
+void div(double* arr1, double* arr2,  int size){
+    for(int i = 0; i < size; ++i){
+    std::cout  << arr1[i] * arr2[size - 1 - i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+void print(double* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+xndir 4.
+Գրեք ծրագիր,  որը օգտվողին թույլ կտա մուտքագրել char-երի զանգված և դուրս կբերի բոլոր թվերը:
+heracnel tvery O(n) bardutyamb
+
+#include <iostream>
+
+int main()
+{
+    char str[20] = "ag5j3b6";
+    std::cout << str << std::endl;
+    int j = 0;
+    for(int i = 0; i < str[i]; i++){
+        if (str[i] >= 97 && str[i] <= 122){
+        str[j] = str[i];
+        ++j;
+        }
+    }
+    str[j] = '\0';
+    std::cout << str << std::endl;
+    
+    return 0;
+}
+
+
+xndir 5
+Գրեք ծրագիր,  որը օգտվողին թույլ կտա մուտքագրել char-երի զանգված և տողը վերածում է մեծատառի։
+poqratarery mecatar
+
+#include <iostream>
+
+int main()
+{
+    char str[20] = "adygDAj";
+    std::cout << str << std::endl;
+    for(int i = 0; i < str[i]; i++){
+        if (str[i] >= 'a' && str[i] <= 'z'){
+            str[i] -= 32;
+        }
+    }
+    std::cout << str << std::endl;
+    
+    return 0;
+}
+
+
+
+
+Գրեք ծրագիր,  որը օգտվողին թույլ կտա մուտքագրել զանգվածի էլեմենտների արժեքները և տպում է դրանք հակառակ հերթականությամբ: Զանգվածը կարող է լինել ցանկացած տիպի։
+#include <iostream>
+
+void revers(int*, int);
+void print(int*, int);
+
+int main(){
+    
+    int size;
+    int arr[20];
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    for(int i = 0; i < size; ++i){
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+    print(arr, size);
+    revers(arr, size);
+    print(arr, size);
+
+    return 0;
+}
+void revers(int* arr, int size){
+    for(int i = 1; i < size; ++i){
+        std::swap(arr[i], arr[size - i - 1]);   
+    }
+}
+
+void print(int* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+
+
+Գրել ծրագիր, որը ստանում է ամբողջ թվային զանգված և թիվ։ Եթե զանգվածում առկա է տրված թիվը տպել YES, հակառակ դեպքում տպել NO։
+
+#include <iostream>
+
+bool revers(int*, int, int);
+void print(int*, int);
+
+int main(){
+    
+    int size;
+    int arr[20];
+    int num = 0;
+    do{
+        std::cout << "Enter the size: ";
+        std::cin >> size;
+    } while(size < 1 && size > 20);
+    for(int i = 0; i < size; ++i){
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+    print(arr, size);
+    if (revers(arr, size, num)){
+        std::cout << "Yes!";
+    } else {
+        std::cout << "No!";
+    }
+
+
+    return 0;
+}
+
+bool revers(int* arr, int size, int num){
+    for(int i = 1; i < size; ++i){
+        if (arr[i] == num){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void print(int* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+Գրել ֆունկցիա, որը ստանում է զանգված եւ ինդեքսի համար։ Ֆունկցիան հեռացնում է զանգվածի տրված ինդեքսով տարրը եւ վերադարձնում նոր զանգվածը որպես արդյունք։
+
+#include <iostream>
+
+int* del(int*, int, int);
+void print(int*, int);
+void scan(int*, int);
+
+int main(){
+    
+    int size = 0;
+    std::cout << "Enter the size: ";
+    std::cin >> size;
+    int* arr = new int[size];
+    
+    scan(arr, size);
+    print(arr, size);
+    arr = del(arr, size, 5);
+    print(arr, size - 1);
+
+    delete arr;
+    arr = nullptr;
+    return 0;
+}
+
+int* del(int* arr, int size, int index){
+    int* arr1 = new int[size - 1];
+    for(int i = 0; i < index; ++i){
+        arr1[i] = arr[i];
+    }
+    int k = index + 1;
+    for(int i = index; i < size - 1; ++i){
+        arr1[i] = arr[k];
+    }
+    delete arr;
+    arr = arr1;
+    arr1 = nullptr;
+    return arr;
+}
+
+void print(int* arr, int size){
+    for(int i = 0; i < size; ++i){
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+void scan(int* arr, int size){
+    for(int i = 0; i < size; ++i){     
+        std::cout << "Enter element: ";
+        std::cin >> arr[i];
+    }
+}
+
+Գրեք ծրագիր, որը օգտվողին թույլ կտա մուտքագրել char-երի զանգված և հեռացնում է կրկնվող նիշերը տողից:
+
+
