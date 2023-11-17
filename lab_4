@@ -27,3 +27,56 @@ int main()
 
     return 0;
 }
+
+
+
+tal tivy ev astichany hashvel u veradarcnel.
+
+#include <iostream>
+
+int power(int num, int ex){
+    if (ex <= 0){
+        return 1;
+    }
+    if (num == 0 || num == 1){
+        return num;
+    }
+    int k = 1;
+    for(int i = 0; i < ex; ++i){
+        k *= num;
+    }
+    return k;
+}
+
+int main()
+{
+    std::cout << power(2, 2);
+
+    return 0;
+}
+
+
+tpel tvi tvanshnery arandzin arandzin
+
+recursiv
+
+#include <iostream>
+
+void print(int num){
+    if (num == 0){
+        return;
+    }
+    print(num / 10);
+    std::cout << num % 10 << " ";
+    
+
+}
+
+int main()
+{
+    print(1200);
+
+    return 0;
+}
+
+iterativ
