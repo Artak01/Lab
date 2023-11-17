@@ -1,0 +1,89 @@
+Իրականացնել ֆունկցիա, որը ստանում է ամբողջ թվային պարամետր և վերադարձնում է n-րդ Ֆիբոնաչիի թիվը։
+
+#include <iostream>
+
+int fib(int n){
+    if ((n == 1) || (n == 0)) {
+      return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+int main()
+{
+    std::cout << "x = " << fib(6);
+
+    return 0;
+}
+
+
+
+Table of a Number: Գրել ֆունկցիա, որը կտպի տրված թվի բազմապատկման աղյուսակը։
+
+#include <iostream>
+
+void fib(int n, int i){
+    if (i > 10) {
+      return;
+    }
+    std::cout << n << " * " << i << " = " << n * i << std::endl;
+    fib(n, ++i);
+}
+int main()
+{
+     fib(6, 0);
+
+    return 0;
+}
+
+
+
+Գրել տրված թվի ֆակտորիալը հաշվող իտերատիվ ֆունկցիա։
+
+#include <iostream>
+
+int  fak(int n){
+    if (n == 0 || n == 1) {
+      return 1;
+    }
+    if (n < 0){
+        return 0;
+    }
+    return n *= fak(n - 1);
+}
+int main()
+{
+    std::cout << fak(5);
+    return 0;
+}
+
+
+Իրականացնել ֆունկցիա, որն ընդունում է թիվ և վերադարձնում նրա թվանշանների գումարը:
+
+
+#include <iostream>
+
+void sum_r(int, int&);
+
+int main()
+{
+    int num = 0;
+    std::cin >> num;
+    int sum = 0;
+    sum_r(num, sum);
+    std::cout << sum;
+    return 0;
+}
+
+void sum_r(int num, int& sum){
+    if(num == 0){
+        return;
+    }
+    
+    sum += num % 10;
+    sum_r(num / 10, sum);
+    
+}
+
+
+Իրականացնել ֆունկցիա, որը ստուգում է՝ թիվը պարզ է, թե ո։ Պարզ է համարվում այն թիվը, որը առանց մնացորդ կարող է բաժանվել ինքը իր վրա և մեկի վրա (մեկը պարզ թիվ չէ)։
+
