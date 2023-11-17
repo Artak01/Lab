@@ -79,4 +79,27 @@ int main()
     return 0;
 }
 
-iterativ
+
+10 tivy tpel cankacac hamkargov
+
+#include <iostream>
+
+const char* ary = "0123456789abcdefghij";
+
+void print(int num, int k ){
+    if (num == 0){
+        return;
+    }
+    print(num / k, k);
+    std::cout << ary[num % k];
+    
+
+}
+
+int main()
+{
+    print(255, 20);
+
+    return 0;
+}
+
