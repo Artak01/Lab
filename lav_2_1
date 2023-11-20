@@ -1,0 +1,84 @@
+grel functia vory stanalov drakan kam bacasakan tiv ktpi et tvic minchev 0;
+
+
+#include <iostream>
+
+void print(int n){
+    if(n == 0){
+        std::cout << "0";
+        return;
+    }
+    std::cout << n << " ";
+    int k = n > 0 ? 1 : -1;
+    print(n - k);
+    
+}    
+    
+int main(){
+    
+    print(-7);
+
+    return 0;
+}
+
+
+recursiv funcia tpum e zangvaci tarery
+
+#include <iostream>
+
+void print(int* arr, int size){
+    if(size == 0){
+        return;
+    }
+    std::cout << *arr << " ";
+    print(arr + 1, size - 1);
+
+}    
+    
+int main(){
+    
+    int arr[5] = {1,2,3,4,5};
+    print(arr, 5);
+
+    return 0;
+}
+
+
+grel recurciv funcia vory stanum e tivy ev veradarcnum e tvanshanneri gumary
+
+
+#include <iostream>
+
+int  print(int n){
+    if(n == 0){
+        return 0;
+    }
+    return n % 10 + print(n/10);
+}    
+    
+int main(){
+    
+    std::cout << print(123);
+    return 0;
+}
+
+
+
+
+erku tveri amenamec yndanur bajanarary
+
+#include <iostream>
+
+int  gcd(int a, int b){
+    if(b == 0){
+        return a;
+    }
+    
+    return gcd(b, a % b);
+}    
+    
+int main(){
+    
+    std::cout << gcd(18, 24);
+    return 0;
+}
