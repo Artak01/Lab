@@ -1,5 +1,5 @@
-grel functia vory stanalov drakan kam bacasakan tiv ktpi et tvic minchev 0;
-
+Գրել ռեկուրսիվ ֆունկցիա, որը ստանում է n բնական թիվ և տպում է n-ից 0 թվերը։
+Գրել ռեկուրսիվ ֆունկցիա, որը ստանում է n բնական թիվ և տպում է 0-ից n թվերը։
 
 #include <iostream>
 
@@ -22,7 +22,7 @@ int main(){
 }
 
 
-recursiv funcia tpum e zangvaci tarery
+Գրել ռեկուրսիվ ֆունկցիա, որը ստանում է ամբողջ թվային զանգված և տպում է զանգվածի էլեմենտները էկրանին։
 
 #include <iostream>
 
@@ -44,7 +44,7 @@ int main(){
 }
 
 
-grel recurciv funcia vory stanum e tivy ev veradarcnum e tvanshanneri gumary
+Իրականացնել ռեկուրսիվ ֆունկցիա, որն ընդունում է թիվ և վերադարձնում նրա թվանշանների գումարը:
 
 
 #include <iostream>
@@ -65,7 +65,7 @@ int main(){
 
 
 
-erku tveri amenamec yndanur bajanarary
+Իրականացնել ռեկուրսիվ ֆունկցիա, որը հաշվում է երկու թվերի ամենամեծ ընդհանուր բաժանարարը։
 
 #include <iostream>
 
@@ -82,3 +82,9 @@ int main(){
     std::cout << gcd(18, 24);
     return 0;
 }
+
+
+
+
+
+
