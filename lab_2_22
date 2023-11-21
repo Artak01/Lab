@@ -1,0 +1,118 @@
+
+
+
+#include <iostream>
+
+int fib(int n){
+    if (n < 0){
+        return n;
+    }
+    if (n < 2){
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+int main(){
+    std::cout << fib(5);
+}
+
+fib bacasakanneri hamar
+
+
+#include <iostream>
+
+int fib(int n){
+    if (n < 0){
+        return n;
+    }
+    if (n < 2){
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+int u_f(int n){
+    int tmp = fib(n < 0 ? -n : n);
+    if (n < 0 && n % 2 ==0){
+        return -tmp;
+    }
+    return tmp;
+
+}
+
+int main(){
+    std::cout << fib(-4);
+}
+
+
+binery search recursiv
+
+
+#include <iostream>
+
+int binery_s(int* arr, int l, int r, int val){
+    if(l <= r){
+        int mid = l + (r - l) / 2;
+        if(arr[mid] == val){
+            return mid;
+        }
+        if (arr[mid] > val){
+            return binery_s(arr, l, mid - 1, val);
+        }
+        return binery_s(arr, mid + 1, r, val);
+    }
+    return -1;
+}
+
+
+int main(){
+    int arr[5] {1,2,3,4,5};
+    std::cout << binery_s(arr, 0, 4, 3);
+}
+
+strlen fun recursiv
+
+#include <iostream>
+
+int len(char* str){
+    if (*str == '\0'){
+        return 0;
+    }
+    return 1 + len(str + 1);
+}
+
+
+int main(){
+    char str[20] = "Hello";
+    std::cout << len(str);
+}
+
+
+max elementy  recurxiv
+
+
+#include <iostream>
+
+int max(int a, int b){
+    if (a > b){
+        return a;
+    }
+    return b;
+}
+
+int maxelm(int* arr, int size){
+    if (size == 0){
+        throw std::invalid_argument("");
+    }
+    if (size == 1){
+        return *arr;
+    } 
+    return max(*arr, maxelm(arr + 1, size - 1));
+}
+
+
+int main(){
+    int arr[5] {1,20,3,4,5};
+    std::cout << maxelm(arr, 5);
+}
