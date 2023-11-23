@@ -1,0 +1,365 @@
+Մուտքագրել քառակուսային մատրից և տպել էկրանին նրա տարրերը։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            std::cout << "Enter matrix element: ";
+            std::cin >> mat[i][j];
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+
+Իրականացնել ֆունկցիա, որը հաշվում և վերադարձնում է քառակուսային մատրիցի գլխավոր անկյունագծի տարրերի գումարը։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+int sum(int mat[][10], int);
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+    std::cout << "Sum: " << sum(mat, n) << std::endl;
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            mat[i][j] = rand()%9;
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+int sum(int mat[][10], int n){
+    int SUM = 0;
+    for(int i = 0; i < n; ++i){
+        SUM += mat[i][i];
+    }
+    return SUM;
+}
+
+
+Իրականացնել ֆունկցիա, որը ստանում է քառակուսային մատրից։ Ֆունկցիան մատրիցի զույգ ինդեքսով տողերի էլեմենտները փոխարինում է 0-ներով և վերադարձնում։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+void chench(int mat[][10], int);
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+    chench(mat, n);
+    print(mat, n);
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            mat[i][j] = rand()%9;
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+void chench(int mat[][10], int n){
+    for(int i = 0; i < n; i+=2){
+        for(int j = 0; j < n; ++j){
+            mat[i][j] = 0;
+        }
+    }
+}
+
+
+Իրականացնել ֆունկցիա, որը հաշվում և վերադարձնում է քառակուսային մատրիցի օժանդակ անկյունագծի տարրերի գումարը։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+int sum(int mat[][10], int);
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+    std::cout << "Sum: " << sum(mat, n) << std::endl;
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            mat[i][j] = rand()%9;
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+int sum(int mat[][10], int n){
+    int SUM = 0;
+    for(int i = 0; i < n; ++i){
+        SUM += mat[i][n - i - 1];
+    }
+    return SUM;
+}
+
+
+
+Իրականացնել ֆունկցիա, որը հաշվում և վերադարձնում է քառակուսային մատրիցի գլխավոր անկյունագծի վերև գտնվող տարրերի գումարը անկյունագծի էլեմենտները ներառյալ։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+int sum(int mat[][10], int);
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+    std::cout << "Sum: " << sum(mat, n) << std::endl;
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            mat[i][j] = rand()%9;
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+int sum(int mat[][10], int n){
+    int SUM = 0;
+    for(int i = 0; i < n; ++i){
+        for(int j = i; j < n; ++j){
+            SUM += mat[i][j];
+        }
+    }
+    return SUM;
+}
+
+
+Իրականացնել ֆունկցիա, որը քառակուսային մատրիցի գլխավոր և օժանդակ անկյունագծի էլեմենտների արժեքները տեղերով կփոխի։
+#include <iostream>
+
+void scan(int mat[][10], int);
+void print(int mat[][10], int);
+void new_m(int mat[][10], int);
+void swap_e(int&, int&);
+
+
+int main(){
+    int mat[10][10];
+    int n = 0; 
+    do{
+        std::cout << "Enter size: ";
+        std::cin >> n;
+    }while(n < 1 || n > 10);
+    
+    scan(mat, n);
+    print(mat, n);
+    new_m(mat, n);
+    print(mat, n);
+}
+
+
+void scan(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+            mat[i][j] = rand()%9;
+         }
+    }
+}
+
+void print(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+         for(int j = 0; j < n; ++j){
+             std::cout << mat[i][j] << " ";
+         }
+         std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+
+void new_m(int mat[][10], int n){
+    for(int i = 0; i < n; ++i){
+        swap_e(mat[i][i], mat[i][n - i - 1]);
+    }
+}
+
+void swap_e(int& a, int& b){
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+
+
+
+Իրականացնել ֆունկցիա, որը կստանա MxN չափի մատրից և կվերադարձնի այն տարրի արժեքը, որը տողում ամենամեծն է, իսկ սյունում ամենափոքրը:
+
+#include <iostream>
+
+int max_in_row(int arr[][10], int col, size_t ind){
+    int max = arr[ind][0];
+    int k = 0;
+    for(int i = 1; i < col; ++i){
+        if (arr[ind][i] > max){
+            max = arr[ind][i];
+            k = i;
+        }
+    }
+    for(int i = k + 1; i < col; ++i){
+        if (arr[ind][i] == max){
+            return -1;
+        }
+    }
+    return k;
+}
+
+bool chack(int arr[][10], int row, int k, int ind){
+    int cnt = 0;
+    for(int i = 0; i < row; ++i){
+        if (arr[i][k] <=  arr[ind][k] && i != ind){
+            return false;
+        }
+    }
+    return true;
+}
+
+int get_num(int arr[][10], int row, int col){
+    for(int i = 0; i < row; ++i){
+        int max_ind = max_in_row(arr, col, i);
+        if (max_ind  == -1){
+            continue;
+        }
+        if (chack(arr, row, max_ind, i)){
+            return arr[i][max_ind];
+        }
+    }
+    throw std::invalid_argument("!");
+}
+
+int main(){
+    int mat[10][10];
+    int col = 0;
+    int row = 0;
+    std::cout << "Enter col and row: ";
+    std::cin >> col >> row;
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; j < col; ++j){
+            mat[i][j] = rand()%10;
+        }
+    }
+    
+    for(int i = 0; i < row; ++i){
+        for(int j = 0; j < col; ++j){
+            std::cout << mat[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+    
+    int a = get_num(mat, row, col);
+    std::cout << "a = " << a << std::endl;
+}
+
+
