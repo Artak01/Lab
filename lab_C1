@@ -1,0 +1,100 @@
+Հայտարարեք ցանկացած երեք տարբերվող տիպի ցուցիչներ: Արժեքավորեք ցուցիչները և տպեք էկրանին տվյալ ցուցիչների մեջ պահված հասցեները։
+#include <iostream>
+
+int main()
+{
+
+    int a = 10;
+    short b = 48;
+    float c = 3.14;
+    int* i_p = &a;
+    short* c_p = &b;
+    float* f_p = &c;
+    std::cout << "int*: " << i_p << std::endl; 
+    std::cout << "short*: " << c_p << std::endl;
+    std::cout << "float*: " << f_p << std::endl;
+
+    return 0;
+}
+
+
+
+Գրեք ծրագիր, որտեղ ցուցիչի մեջ պահված կլինի զանգվածի առաջին էլեմենտի հասցեն: Ցուցիչի օգնությամբ տպել զանգվածի տարրերը էկրանին։
+#include <iostream>
+
+int main()
+{
+    const int size = 5;
+    int arr[size] = {1, 2, 3, 4 ,5};
+    int* ptr = arr;
+
+    for(int i = 0; i < size; ++i){
+        std::cout << *(ptr + i) << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+Հայտարարեք ցանկացած տիպի ցուցիչի և սկզբնավորեք այն NULL-ով։
+#include <iostream>
+
+int main()
+{
+    int* ptr = NULL;
+    std::cout << std::endl;
+    return 0;
+}
+
+
+Հայտարարել ամբողջ թվով փոփոխական և ցուցիչ: Ցուցիչին տվեք փոփոխականի հասցեն և ցուցիչի միջոցով տպեք փոփոխականի արժեքը:
+#include <iostream>
+
+int main()
+{
+    int num = 10;
+    std::cout << "Number: " << num << std::endl;
+    int* ptr = &num;
+    *ptr = 20;
+    std::cout << "Number: " << num << std::endl;
+    return 0;
+}
+
+
+Հայտարարեք երկու ամբողջ թվով փոփոխական և երկու ցուցիչ: Ցուցիչներին վերագրեք փոփոխական հասցեներ և կատարեք թվաբանական գործողություններ (գումարում, հանում) օգտագործելով ցուցիչներ։
+#include <iostream>
+
+int main()
+{
+    int num1 = 10;
+    int num2 = 5;
+    
+    int* ptr1 = &num1;
+    int* ptr2 = &num2;
+   
+    std::cout << "Sum: " << *ptr1 + *ptr2 << std::endl;
+    std::cout << "Sub: " << *ptr1 - *ptr2 << std::endl;
+    return 0;
+}
+
+
+Գրել ֆունկցիա, որը ցուցիչների միջոցով փոխում է երկու ամբողջ թվային փոփոխականների արժեքները։
+
+#include <iostream>
+
+void swap(int* p_num1, int* p_num2){
+    int tmp = *p_num1; 
+    *p_num1 = *p_num2;
+    *p_num2 = tmp;
+}
+
+int main()
+{
+    int num1 = 10;
+    int num2 = 5;
+    
+    std::cout << "Number 1: " << num1 << " " << "Number 2: " << num2 << std::endl;
+    swap(&num1, &num2);
+    std::cout << "Number 1: " << num1 << " " << "Number 2: " << num2 << std::endl;
+    return 0;
+}
