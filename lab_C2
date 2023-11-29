@@ -70,3 +70,85 @@ int main(){
     std::cout << ptr << std::endl;
 }
 
+Իրականացնել string.h գրադարանային ֆայլի կողմից տրամադրվող strcat() ֆունկցիային համարժեք ֆունկցիա:
+
+#include <iostream>
+
+char* strcatt(char* str1, const char* str2){
+    char* ptr = str1;
+    while(*ptr){
+        ++ptr;
+    }
+    while(*str2){
+        *ptr = *str2;
+        ++ptr;
+        ++str2;
+    }
+    *ptr = '\0';
+    return str1;
+}
+
+int main(){
+    char str1[20] = "Hello";
+    char str2[10] = " World!";
+    strcatt(str1, str2);
+    std::cout << str1 << std::endl;
+}
+
+Իրականացնել string.h գրադարանային ֆայլի կողմից տրամադրվող strcpy() ֆունկցիային համարժեք ֆունկցիա։
+
+#include <iostream>
+
+char* strcpyy(char* str1, const char* str2){
+    char* ptr = str1;
+   
+    while(*str2){
+        *ptr = *str2;
+        ++ptr;
+        ++str2;
+    }
+    *ptr = '\0';
+    
+    return str1;
+}
+
+int main(){
+    char str1[20] = "Hello";
+    char str2[10] = " World!";
+    strcpyy(str1, str2);
+    std::cout << str1 << std::endl;
+}
+
+
+Իրականացնել string.h գրադարանային ֆայլի կողմից տրամադրվող strstr() ֆունկցիային համարժեք ֆունկցիա:
+
+#include <iostream>
+
+char* strstrr(const char*, const char*);
+
+int main(){
+    char str1[20] = "This is an apple";
+    char str2[10] = "iss";
+    char* ptr = strstrr(str1, str2);
+    if (ptr){
+        std::cout << ptr << std::endl;
+    } else{
+        std::cout << "Chi gtnvel!" << std::endl;
+    }
+}
+
+char* strstrr(const char* str1, const char* str2){
+    while(*str1){
+        const char* s1 = str1;
+        const char* s2 = str2;
+        while(*s1 && *s2 && (*s1 == * s2)){
+            ++s1;
+            ++s2;
+        }
+        if (*s2 == '\0'){
+            return (char*)str1;
+        }
+        ++str1;
+    }
+    return nullptr;
+}
