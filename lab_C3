@@ -1,0 +1,111 @@
+Գրել void foo(int target, char c1, char c2, short sh) նախատիպով ֆունկցիան, 
+որը c1, c2 և sh փոփոխականների արժեքները հերթականությամբ կտեղավորի target int տիպի փոփոխականի մեջ։
+
+#include <iostream>
+
+void foo(int, char, char, short);
+
+int main()
+{
+    int num = 0;
+    char ch1 = 'H';
+    char ch2 = 'H';
+    short sh = 8;
+    foo(num, ch1, ch2, sh);
+
+    return 0;
+}
+
+void foo(int target, char c1, char c2, short sh) {
+    int* ptr = &target;
+    char* c1_p = (char*)ptr;
+    *c1_p = c1;
+    char* c2_p = (char*)ptr + 1;
+    *c2_p = c2;
+    short* sh_p = (short*)ptr + 1;
+    *sh_p = sh;
+    std::cout << "Target: " << target << std::endl;
+}
+
+Իրականացնել ֆունկցիա, որը ստանում է զանգված և բուլիան արժեք վերադարձնող ֆունկցիայի ցուցիչ։ 
+Ֆունկցիան զանգվածի բոլոր էլեմենտների վրա կանչում է ստացված ֆունկցիան։
+
+#include <iostream>
+
+bool is_even(int);
+void foo(int*, int, bool (*)(int));
+
+int main()
+{
+    size_t size = 5;
+    int arr[5] = {1, 2, 3, 4, 5};
+    foo(arr, size, is_even);
+
+    return 0;
+}
+
+bool is_even(int x){
+    if (x % 2 == 0){
+        return true;
+    }
+    return false;
+}
+
+void foo(int* arr, int size, bool (*ptr)(int)){
+    for(int i = 0; i < size; ++i){
+        if (is_even(arr[i])){
+            std::cout << arr[i] << " Zuyg tiv e!" << std::endl;
+        } else {
+            std::cout << arr[i] << " Kent tiv e!" << std::endl;
+        }
+    }
+}
+
+Իրականացնել հաշվիչ ծրագիր, որն օգտագործում է std::map և ֆունկցիայի ցուցիչներ։ 
+Ֆունկցիայի ցուցիչները հղվում են համապատասխան թվաբանական գործողությունը կատարող ֆունկցիայի վրա։
+
+#include <iostream>
+#include <map>
+
+int sum(int, int);
+int sub(int, int);
+int mul(int, int);
+int divi(int, int);
+
+int main()
+{
+    std::map<char, int (*)(int, int)> cal;
+    cal['+'] = sum;
+    cal['-'] = sub;
+    cal['*'] = mul;
+    cal['/'] = divi;
+
+    char ch;
+    int num1 = 0;
+    int num2 = 0;
+    std::cout << "Enter the expretion: ";
+    std::cin >> num1 >> ch >> num2;
+    std::cout << "Resalt: " << cal[ch](num1, num2) << std::endl;
+
+    return 0;
+}
+
+int sum(int a, int b){
+    return a + b;
+}
+
+int sub(int a, int b){
+    return a - b;
+}
+
+int mul(int a, int b){
+    return a * b;
+}
+
+int divi(int a, int b){
+    if (b != 0){
+        return a / b;
+    }
+    throw std::invalid_argument("0 chi kareli bajanel!!");
+}
+
