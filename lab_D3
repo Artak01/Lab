@@ -1,0 +1,164 @@
+Մուտքագրել N թիվ և հաշվել տրված թվի արմատը՝ sqrt(N)։
+#include <iostream>
+
+double sqrtt(double, double x = 1);
+
+int main()
+{
+    double num = 0; 
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+    std::cout << "Resals: " << sqrtt(num);
+
+    return 0;
+}
+
+double sqrtt(double num, double x){
+    for(int i = 0; i < 1000000; ++i){
+        x = (x + (num / x)) / 2;
+    }
+    return x;
+}
+
+Տրված է X բնական թիվը։ Իրականացնել ֆունկցիա, որը կհաշվի տրված թվի լոգարիթմը 2 հիմքով։
+#include <iostream>
+
+double expp(double, int);
+double ln(double);
+double power(double, double);
+
+int main()
+{
+    double num = 0; 
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+    std::cout << "Resals: " << ln(num) / ln(2);
+
+    return 0;
+}
+double expp(double x, int n){
+    return power(((x - 1) / (x + 1)), 2 * n - 1) / (2 * n - 1);
+}
+double ln(double num){
+    double sum = 0;
+    for(int i = 1; i < 100; ++i){
+        sum += 2 * expp(num, i);
+    }
+    return sum;
+}
+double power(double num, double a){
+    double tmp = num;
+    for(int i = 1; i < a; ++i){
+        tmp *= num;
+    }
+    return tmp;
+}
+
+Տրված է X և a բնական թվեր։ Իրականացնել ֆունկցիա, որը կհաշվի X թվի լոգարիթմը a հիմքով։
+#include <iostream>
+
+double expp(double, int);
+double ln(double);
+double power(double, double);
+
+int main()
+{
+    double num = 0; 
+    int a = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+    std::cout << "Enter the bise: : ";
+    std::cin >> a;
+    std::cout << "Resals: " << ln(num) / ln(a);
+
+    return 0;
+}
+
+double expp(double x, int n){
+    return power(((x - 1) / (x + 1)), 2 * n - 1) / (2 * n - 1);
+}
+double ln(double num){
+    double sum = 0;
+    for(int i = 1; i < 100; ++i){
+        sum += 2 * expp(num, i);
+    }
+    return sum;
+}
+double power(double num, double a){
+    double tmp = num;
+    for(int i = 1; i < a; ++i){
+        tmp *= num;
+    }
+    return tmp;
+}
+
+Մուտքագրել երեք բնական թվեր՝ a, b և c։ Հաշվել այդ կողմերով եռանկյան մակերեսը Հերոնի բանաձևով։
+#include <iostream>
+
+bool is_triangle(double, double, double);
+double heron(double, double, double);
+double sqrtt(double);
+
+int main()
+{
+    
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    std::cout << "Enter triangel side: ";
+    std::cin >> a >> b >> c;
+    std::cout << "Paragic: " << heron(a, b, c);
+    return 0;
+}
+
+bool is_triangle(double a, double b, double c){
+    if (a < 0 || b < 0 || c < 0){
+        return false;
+    }
+    if (a + b < c || a + c < b || b + c < a){
+        return false;
+    }
+    return true;
+}
+
+double heron(double a, double b, double c){
+    if (!is_triangle(a, b, c)){
+        throw std::invalid_argument("ERRORRRR!!");
+    }
+    double p =  (a + b + c) / 2;
+    double res = sqrtt(p * (p - a) * (p - b) * (p - c));
+    return res;
+}
+
+double sqrtt(double num){
+    double x = 1;
+    for(int i = 0; i < 10; ++i){
+        x = (x + (num / x)) / 2;
+    }
+    return x;
+}
+
+§§
+
+Նկարագրել բուլյան ֆունկցիա, որն արգումենտում ստանում է երեք իրական թիվ և վերադարձնում է false, 
+եթե գոյություն չունի տրված կողմերով եռանկյուն: Հակառակ դեպքում վերադարձնում է true և վերադարձնում է նաև այդ եռանկյան մակերեսը:
+Տրված n դրական ամբողջ թվի համար արտածել 2-ի ամենամեծ աստիճանը, որը չի գերազանցում n-ը։
+#include <iostream>
+
+void find(int num){
+    int x = 1;
+    while(x < num){
+        x *= 2;
+    }
+    x /= 2;
+    std::cout << x << std::endl;
+}
+int main()
+{
+    int a = 0;
+    std::cout << "Enter the number:  ";
+    std::cin >> a;
+    find(a);
+
+    return 0;
+}
