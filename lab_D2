@@ -34,15 +34,67 @@ int main(){
     return 0;
 }
 
-Գրել ֆունկցիա, որը ստանում է a և b թվերը(որտեղ a-ն ուղղանկյուն եռանկյան դիմացի էջն է, իսկ  b-ն ուղղանկյուն եռանկյան կից էջը) հաշվել և 
-վերադարձնել կից էջով և ներքնաձիգով կազմած անկյան սինուսը(sin)
-
-
-
-
+Գրել ֆունկցիա, որը ստանում է a և b թվերը(որտեղ a-ն ուղղանկյուն եռանկյան դիմացի էջն է, իսկ  b-ն ուղղանկյուն եռանկյան կից էջը) հաշվել և վերադարձնել կից էջով և ներքնաձիգով կազմած անկյան սինուսը(sin)
 Գրել ֆունկցիա, որը ստանում է a և b թվերը(որտեղ a-ն ուղղանկյուն եռանկյան դիմացի էջն է, իսկ  b-ն ուղղանկյուն եռանկյան կից էջը) հաշվել և վերադարձնել կից էջով և ներքնաձիգով կազմած անկյան կոսինուսը(cos)
 Գրել ֆունկցիա, որը ստանում է a և b թվերը(որտեղ a-ն ուղղանկյուն եռանկյան դիմացի էջն է, իսկ  b-ն ուղղանկյուն եռանկյան կից էջը) հաշվել և վերադարձնել կից էջով և ներքնաձիգով կազմած անկյան տանգենսը(tg)
 Գրել ֆունկցիա, որը ստանում է a և b թվերը(որտեղ a-ն ուղղանկյուն եռանկյան դիմացի էջն է, իսկ  b-ն ուղղանկյուն եռանկյան կից էջը) հաշվել և վերադարձնել կից էջով և ներքնաձիգով կազմած անկյան կոտանգենսը(ctg).
+
+#include <iostream>
+
+double find_c(double, double);
+double power(double, int);
+double sqrtt(double, int);
+double sinn(double, double);
+double coss(double, double);
+double tang(double, double);
+double ctang(double, double);
+
+int main(){
+
+    double a = 0; 
+    double b = 0; 
+    std::cout << "Enter a and b: ";
+    std::cin >> a >> b;
+    std::cout << "Sin: " << sinn(a, find_c(a, b)) << std::endl;
+    std::cout << "Cos: " << coss(b, find_c(a, b)) << std::endl;
+    std::cout << "Tan: " << tang(a, b) << std::endl;
+    std::cout << "Ctan: " << ctang(a, b) << std::endl;
+    return 0;
+}
+
+double find_c(double a, double b){
+    return  sqrtt((power(a, 2) + power(b ,2)), 1);
+}
+
+double power(double x, int expp){
+    int tmp = x;
+    for(int i = 1; i < expp; ++i){
+        tmp *= x;
+    }
+    return tmp;
+}
+
+double sqrtt(double num, int x){
+    for(int i = 0; i < 10; ++i){
+        x = (x + (num / x)) / 2;
+    }
+    return x;
+}
+
+double sinn(double a, double c){
+    return a / c;
+}
+
+double coss(double b, double c){
+    return b / c;
+}
+
+double tang(double a, double b){
+    return a / b;
+}
+double ctang(double a, double b){
+    return b / a;
+}
 
 
 Գրել ֆունկցիա, որը որպես արգումենտ կստանա թիվ և կվերադարձնի true, եթե թիվը կատարյալ(perfect) է, հակառակ դեպքում false.
