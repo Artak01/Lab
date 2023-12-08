@@ -1,0 +1,262 @@
+Մուտքագրել  2 թիվ` n, k և n-չափանի վեկտոր՝ V։ Բազմապատկել տրված վեկտորը k թվով։
+#include <iostream>
+
+void print(double*, int);
+void mul(double*, double*, int, double);
+
+int main()
+{
+    double v1[20];
+    double v2[20];
+    int n = 0;
+    double k = 0;
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    }while(n <= 0 || n >= 20);
+    std::cout << "Enter k: ";
+    std::cin >> k;
+    for(int i = 0 ; i < n; ++i){
+        std::cout << "Enter vector kordinat: "; 
+        std::cin >> v1[i];
+    }
+    print(v1, n);
+    mul(v1, v2, n, k);
+    print(v2, n);
+    
+    return 0;
+}
+void print(double* v, int n){
+    for(int i = 0; i < n; ++i){
+        std::cout << v[i] << " "; 
+    }
+    std::cout << std::endl;
+}
+void mul(double* v1, double* v2, int n, double k){
+    for(int i = 0; i < n; ++i){
+        v2[i] = v1[i] * k;
+    }
+}
+
+
+Մուտքագրել n թիվ և n-չափանի 2 վեկտորներ՝ V1, V2։ Հաշվել այդ վեկտորների գումարը՝ V1 + V2:
+#include <iostream>
+
+void print(double*, int);
+void add(double*, double*, double*, int);
+
+int main()
+{
+    double v1[20];
+    double v2[20];
+    double v3[20];
+    int n = 0;
+    double k = 0;
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    }while(n <= 0 || n >= 20);
+    for(int i = 0 ; i < n; ++i){
+        std::cout << "Enter vector kordinat: "; 
+        std::cin >> v1[i];
+    }
+    for(int i = 0 ; i < n; ++i){
+        std::cout << "Enter secnd kordinat: "; 
+        std::cin >> v2[i];
+    }
+    print(v1, n);
+    print(v2, n);
+    add(v1, v2, v3, n);
+    print(v3, n);
+    
+    return 0;
+}
+void print(double* v, int n){
+    for(int i = 0; i < n; ++i){
+        std::cout << v[i] << " "; 
+    }
+    std::cout << std::endl;
+}
+void add(double* v1, double* v2, double* v3, int n){
+    for(int i = 0; i < n; ++i){
+        v3[i] = v1[i] + v2[i];
+    }
+}
+
+
+Մուտքագրել n թիվ և n-չափանի 2 վեկտորներ՝ V1, V2։ Հաշվել այդ վեկտորների սկալյար արտադրյալը՝ V1 * V2:
+#include <iostream>
+
+void print(double*, int);
+double s_mul(double*, double*, int);
+
+int main()
+{
+    double v1[20];
+    double v2[20];
+    int n = 0;
+    double k = 0;
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    }while(n <= 0 || n >= 20);
+    for(int i = 0 ; i < n; ++i){
+        std::cout << "Enter vector kordinat: "; 
+        std::cin >> v1[i];
+    }
+    for(int i = 0 ; i < n; ++i){
+        std::cout << "Enter secnd kordinat: "; 
+        std::cin >> v2[i];
+    }
+    print(v1, n);
+    print(v2, n);
+    std::cout << "Resalt: " << s_mul(v1, v2, n) << std::endl;
+
+    return 0;
+}
+void print(double* v, int n){
+    for(int i = 0; i < n; ++i){
+        std::cout << v[i] << " "; 
+    }
+    std::cout << std::endl;
+}
+double s_mul(double* v1, double* v2, int n){
+    double sum = 0;
+    for(int i = 0; i < n; ++i){
+        sum += v1[i] * v2[i];
+    }
+    return sum;
+}
+
+Մուտքագրել n թիվ, և n չափանի V  վեկտոր։ Հաշվել տրված վեկտորի երկարությունը։
+#include <iostream>
+
+double power(double num, int x){
+    int tmp = num;
+    for(int i = 0; i < x; ++i){
+        tmp *= num;
+    }
+    return tmp;
+}
+double sqrtt(double n) {
+    double x = 1.0;
+    int end = 10;
+    while(end) {
+        x = (x + (n / x)) / 2;
+        --end;
+    }
+    return x;
+}
+
+double erk(double* v1, int n){
+    double sum = 0.0;
+    for(int i = 0; i < n; ++i){
+        sum += power(v1[i], 2);
+    }
+    return sqrtt(sum);
+}
+
+int main()
+{
+    double v1[30];
+    int n = 0; 
+
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    }while(n < 0 || n >= 30);
+    
+    std::cout << "The array " << std::endl;
+    for(int i = 0; i < n; ++i){
+        std::cout << "elements: ";
+        std::cin >> v1[i];
+    }
+
+    for(int i = 0; i < n; ++i){
+        std::cout << v1[i] << " ";
+    }
+   
+    std::cout << std::endl;
+    std::cout << "Result: ";
+    std::cout << erk(v1, n);
+    
+    return 0;
+}
+
+Մուտքագրել n թիվ և n-չափանի 2 վեկտորներ՝ V1, V2։ Գտնել այդ վեկտորների կազմած անկյան կոսինուսը։
+#include <iostream>
+
+double power(double num, int x){
+    int tmp = num;
+    for(int i = 0; i < x; ++i){
+        tmp *= num;
+    }
+    return tmp;
+}
+double sqrtt(double n) {
+    double x = 1.0;
+    int end = 10;
+    while(end) {
+        x = (x + (n / x)) / 2;
+        --end;
+    }
+    return x;
+}
+
+double mul_v(double* v1, double* v2, int n){
+    double mul = 0.0;
+    for(int i = 0; i < n; ++i){
+        mul += v1[i] * v2[i];
+    }
+    return mul;
+}
+
+double erk(double* v1, int n){
+    double sum = 0.0;
+    for(int i = 0; i < n; ++i){
+        sum += power(v1[i], 2);
+    }
+    return sqrtt(sum);
+}
+
+double result(double* v1, double* v2, int n){
+    double cosinus = mul_v(v1, v2, n) / (erk(v1, n) * erk(v2, n));
+    return cosinus;
+}
+int main()
+{
+    double v1[30];
+    double v2[30];
+    int n = 0; 
+
+    do{
+        std::cout << "Enter n: ";
+        std::cin >> n;
+    }while(n < 0 || n >= 30);
+    
+    std::cout << "First array " << std::endl;
+    for(int i = 0; i < n; ++i){
+        std::cout << "elements: ";
+        std::cin >> v1[i];
+    }
+
+    std::cout << "Second array " << std::endl;
+    for(int i = 0; i < n; ++i){
+        std::cout << "elements: ";
+        std::cin >> v2[i];
+    }
+    
+    for(int i = 0; i < n; ++i){
+        std::cout << v1[i] << " ";
+    }
+    
+    for(int i = 0; i < n; ++i){
+        std::cout << v2[i] << " ";
+    }
+    
+    std::cout << std::endl;
+    std::cout << "ankyan cos = ";
+    std::cout << result(v1, v2, n);
+    
+    return 0;
+}
