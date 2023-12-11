@@ -1,0 +1,101 @@
+Տրված թվի երկուական համակարգի ներկայացման մեջ հաշվել 1-երի քանակը։
+#include <iostream>
+
+int foo(int num){
+    int count = 0;
+    while(num){
+        if(num & 1){
+            count++;
+        }
+        num >>= 1;
+    }
+    return count;
+}
+int main(){
+    std::cout << foo(15) << std::endl;
+    return 0;
+}
+integeri hamar
+#include <iostream>
+
+int foo(int num){
+    int count = 0;
+    int x = 0;
+    while(x != (sizeof(int) * 8)){
+        std::cout << (num & 1);
+        if (num & 1){
+            count++;
+        }
+        num >>= x;
+        x++;
+    }
+    std::cout << std::endl;
+    return count;
+}
+
+int main(){
+    std::cout << foo(7) << std::endl;
+    return 0;
+}
+
+
+Ստուգել թվի 1 արժեքով բիթերի քանակը կենտ է, թե զույգ
+#include <iostream>
+
+int foo(int num){
+    bool b = false;
+    while(num){
+        b ^= (num & 1);
+        num >>= 1;
+    }
+    return b;
+}
+
+int main(){
+    std::cout << foo(7) << std::endl;
+    return 0;
+}
+
+Recursiv
+#include <iostream>
+
+bool foo(int num){
+    if (!num){
+        return 0;
+    }
+    return (num & 1) ^ foo(num >> 1);
+}
+
+int main(){
+    std::cout << foo(7) << std::endl;
+    return 0;
+}
+
+
+Գրել void set(int n, int i) ֆունկցիան, որը տրված n թվի i-րդ բիթը կդարձնի 1։
+#include <iostream>
+
+int foo(int num, int ind){
+    num |= (1 << ind);
+    return num;
+}
+
+int main(){
+    std::cout << foo(4, 0) << std::endl;
+    return 0;
+}
+
+
+Գրել void reset(int n, int i), որը տրված n թվի i-րդ բիթը կդարձնի 0։
+Գրել void flip(int n, int i), որը տրված n թվի i-րդ բիթը  կշրջի, այսինքն 1-ը կդարձնի 0, 0-ն:
+#include <iostream>
+
+int foo(int num, int ind){
+    num ^= (1 << ind);
+    return num;
+}
+
+int main(){
+    std::cout << foo(4, 0) << std::endl;
+    return 0;
+}
