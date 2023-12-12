@@ -1,0 +1,155 @@
+Կատարել swap գործողություն թվի i և j բիթերը տեղափոխելու համար։
+#include <iostream>
+
+void swap_bit(int& n, int i, int j){
+    if ((i == j) || (i < 0) || (j < 0) || (i > (sizeof(int) * 8)) || (j > (sizeof(int) * 8))){
+        return;
+    }
+    bool a = n & (1 << i);
+    bool b = n & (1 << j);
+    if (a != b){
+        n ^= (1 << i);
+        n ^= (1 << j);
+    } else 
+        return;
+}
+int main()
+{
+    int n = 0;
+    int i = 0;
+    int j = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    std::cout << "Enter i and j: ";
+    std::cin >> i >> j;
+    swap_bit(n, i, j);
+    std::cout << "Number: " << n << std::endl;
+    return 0;
+}
+
+Տպել ստացված թվի երկուական համակարգի ներկայացումը։ Օգտագործելով բիթային գործողություններ։
+#include <iostream>
+
+void print_binry(int n){
+    if (!n){
+        return;
+    }
+    print_binry(n >> 1);
+    std::cout << (n & 1);
+}
+int main()
+{
+    int n = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    print_binry(n);
+    return 0;
+}
+
+Շրջել թվի բիթերը(reverse), օրինակ՝ 11110000 -> 00001111։
+#include <iostream>
+
+void swap_bit(int& n, int i, int j){
+    if ((i == j) || (i < 0) || (j < 0) || (i > (sizeof(int) * 8)) || (j > (sizeof(int) * 8))){
+        return;
+    }
+    bool a = n & (1 << i);
+    bool b = n & (1 << j);
+    if (a != b){
+        n ^= (1 << i);
+        n ^= (1 << j);
+    } else 
+        return;
+}
+void revers(int& n, int i, int j){
+    while(i < j){
+        swap_bit(n, i, j);
+        ++i;
+        --j;
+    }
+}
+int main()
+{
+    int n = 0;
+    int i = 0;
+    int j = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> n;
+    std::cout << "Enter i and j: ";
+    std::cin >> i >> j;
+    revers(n, i, j);
+    std::cout << "Number: " << n << std::endl;
+    return 0;
+}
+
+Ստուգել թիվը 2-ի աստիճան է, թե ոչ։
+#include <iostream>
+
+bool chack(int n){
+    int count = 0;
+    while(n){
+        if (n & 1){
+            count++;
+        }
+        n >>= 1;
+    }
+    if (count == 1){
+        return true;
+    } else
+        return false;
+}
+int main()
+{
+    int n = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> n;;
+    std::cout << "Resalt: " << chack(n) << std::endl;
+    return 0;
+}
+
+Տրված է ամբողջ թվերի զանգված, որում բոլոր էլեմենտները կրկնվում են, բացի մեկից։ Իրականացնել ալգորիթմ, 
+որը կգտնի միակ էլեմենտը O(n) ժամանակում։ Օգտվել բիթային գործողություններից։
+#include <iostream>
+
+int find(int* arr, int size){
+    int x = 0;
+    for(int i = 0; i < size; ++i){
+        x ^= arr[i];
+    }
+    return x;
+}
+int main()
+{
+    size_t size = 7;
+    int arr[size] = {1, 3, 1, 3, 4, 2, 4};
+    std::cout << "The number: " << find(arr, size) << std::endl;
+    return 0;
+}
+
+
+
+Tveri gumarel bitwize gorcoxutyunnerov
+
+#include <iostream>
+
+int sum(int a, int b){
+    while(b){
+        int c = a & b;
+        a ^= b;
+        b = c << 1;
+    }
+    return a;
+}
+int main()
+{
+    int a = 0; 
+    int b = 0;
+    std::cout << "Enter numbers: ";
+    std::cin >> a >> b;
+    std::cout << "Sum number: " << sum(a, b) << std::endl;
+    return 0;
+}
+
+
+
+
