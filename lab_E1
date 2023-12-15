@@ -87,6 +87,27 @@ int main(){
 
 
 Գրել void reset(int n, int i), որը տրված n թվի i-րդ բիթը կդարձնի 0։
+#include <iostream>
+
+void reset(int& n, int index){
+    if(n & (1 << index)){
+        n ^= (1 << index);
+    }
+} 
+
+int main()
+{
+    int num = 0;
+    std::cout << "Enter the number: ";
+    std::cin >> num;
+    int i = 0;
+    std::cout << "Enter the index: ";
+    std::cin >> i;
+    reset(num, i);
+    std::cout << "new num : " << num;
+    return 0;
+}
+
 Գրել void flip(int n, int i), որը տրված n թվի i-րդ բիթը  կշրջի, այսինքն 1-ը կդարձնի 0, 0-ն:
 #include <iostream>
 
