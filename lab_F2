@@ -1,0 +1,96 @@
+Իրականացնել ծրագիր, որը ստանում է տեքստային ֆայլ, ապակոդավորում է ֆայլի պարունակությունը և ապակոդավորած ֆայլի պարունակությունը 
+տեղադրում է նոր ֆայլում։ Իրականացնել խնդիրը Caesar cipher և XOR կոդավորումների հիման վրա։
+#include <iostream>
+#include <fstream>
+
+void encode(std::string& ch, int n){
+    for(int i = 0; i < ch.size(); ++i){
+        if(ch[i] >= 'a' && ch[i] <= 'z'){
+            if (ch[i] + n > 'z'){
+                ch[i] = ch[i] + n  - 26;
+            } else if (ch[i] + n < 'a'){ 
+                ch[i] = ch[i] + n + 26;
+            } else{
+                ch[i] += n;
+            }
+        }
+        if(ch[i] >= 'A' && ch[i] <= 'Z'){
+            if (ch[i] + n > 'Z'){
+                ch[i] = ch[i] + n  - 26;
+            } else if (ch[i] + n < 'A'){
+                ch[i] = ch[i] + n + 26;
+            } else{
+                ch[i] += n;
+            }
+        }
+    }
+}
+
+
+int main(){
+    std::string s1;
+    std::string s2;
+    int n = 0;
+    bool b;
+    std::cout << "Enter input file name: ";
+    std::cin >> s1;
+    std::cout << "Enter output file name: ";
+    std::cin >> s2;
+    std::cout << "Enter key: ";
+    std::cin >> n;
+    std::cout << "Enter \n 1) 1 - code \n 2) 0 - decode \n: ";
+    std::cin >> b;
+    if (!b){
+        n = -n;
+        }
+        n %= 26;
+        std::ifstream f1(s1);
+        std::ofstream f2(s2);
+        std::string str;
+        while(std::getline(f1, str), !f1.eof()){
+            encode(str, n);
+            f2 << str << std::endl;
+        }
+        f1.close();
+        f2.close();
+
+    return 0;
+}
+ XOR կոդավորումների հիման վրա։
+#include <iostream>
+#include <fstream>
+
+void xorr(std::string& str, int key){
+    for(int i = 0; i < str.size(); ++i){
+            str[i] ^= key;
+    }
+}
+
+int main(){
+    std::string s1;
+    std::string s2;
+    int key = 0;
+    bool b = false;
+    std::cout << "Enter the input file name: ";
+    std::cin >> s1;
+    std::cout << "Enter the output file name: ";
+    std::cin >> s2;
+    std::cout << "Enter the key: ";
+    std::cin >> key;
+
+    std::ifstream f1(s1);
+    std::ofstream f2(s2);
+    std::string str;
+    while(std::getline(f1, str), !f1.eof()){
+        xorr(str, (char)key);
+        f2 << str << std::endl;
+    }
+    f1.close();
+    f1.close();
+
+    return 0;
+}
+
+Իրականացնել ծրագիր, որը ստանում է ֆայլ և սեղմում է (compress) ֆայլի պարունակությունը օգտագործելով RLE - Run-Length Encoding ալգորիթմը։
+
+
