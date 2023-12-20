@@ -30,3 +30,32 @@ int main(){
 }
 
 Իրականացնել ծրագիր, որը ստանում է ֆայլ և տրամադրում տեքստի մասին վիճակագրություն՝ տողերի քանակը, բառերի քանակը և նիշերի քանակը։
+#include <iostream>
+#include <fstream>
+
+int main(){
+
+    std::string s;
+    std::cout << "Enter the file name: ";
+    std::cin >> s;
+
+    int sym = 0;
+    int bar = 0;
+    int tox = 0;
+
+    std::ifstream f1(s);
+    std::string str;
+    while(std::getline(f1, str), !f1.eof()){
+        for(int i = 0; i < str.size(); ++i){
+            ++sym;
+            if ((str[i] != ' ' && str[i + 1] == ' ') || str[i] == 0){
+                ++bar;
+            }
+        }
+        ++tox;
+    }
+    std::cout << "Tox: " << tox << std::endl;
+    std::cout << "Bar: " << bar << std::endl;
+    std::cout << "Symble: " << sym << std::endl;
+    return 0;
+}
