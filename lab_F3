@@ -1,0 +1,53 @@
+Իրականացնել ծրագիր, որը ստանում է երկու տեքստային ֆայլ և համեմատում նրանց պարունակությունը։ Ծրագիրը ստեղծում է նոր ֆայլ, 
+որում տեղադրում է երկու ֆայլերի միջև տարբերությունները՝ նշելով որ տողերում;
+#include <iostream>
+#include <fstream>
+
+bool equal(std::string s1, std::string s2){
+    if (s1.size() != s2.size()){
+        return false;
+    }
+    for(int i = 0; i < s1.size() || i < s2.size(); ++i){
+        if(s1[i] != s2[i]){
+            return false;
+        }
+        
+    }
+    return true;
+}
+
+int main(){
+    std::string s1;
+    std::string s2;
+    std::string s3;
+    std::string str1;
+    std::string str2;
+
+    std::cout << "Enter input file1: ";
+    std::cin >> s1;
+    std::cout << "Enter input file2: ";
+    std::cin >> s2;
+    std::cout << "Enter output file2: ";
+    std::cin >> s3;
+
+
+    std::ifstream f1(s1);
+    std::ifstream f2(s2);
+    std::ofstream f3(s3);
+
+   int count = 0;
+    while(std::getline(f1, str1), std::getline(f2, str2), (!f1.eof() || !f2.eof())){
+            count++;
+            if(!check(str1, str2)){
+                f3 << "Line " << count << ": " << str1 << " | " << str2 << std::endl;
+            }
+        
+    }
+    f1.close();
+    f2.close();
+    f3.close();
+
+}
+Իրականացնել ծրագիր, որը ստանում է տեքստային ֆայլ և ֆայլում փնտրում որոշակի բառ կամ արտահայտու թյուն։ 
+Վերադարձնել այն տողերի համարները, որում առկա է փնտրվող բառը կամ արտահայտությունը։
+
